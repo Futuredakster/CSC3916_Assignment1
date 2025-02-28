@@ -7,10 +7,12 @@ server.use(bodyParser.json()); // Handle JSON requests
 server.use(bodyParser.urlencoded({ extended: false })); // Handle URL encoded requests
 
 server.post("/", function (req, res) {
-    console.log("I got: " + req.body.message);
     res.send(req.body.message); // Echo back the message
 });
+ 
+const port = process.env.PORT || 3000;
 
-server.listen(3000, function () {
-    console.log("Server is running on port 3000");
+// Start the server
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
